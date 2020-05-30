@@ -1,0 +1,22 @@
+<div>
+  <h2>Produtos</h2>
+  <hr>
+  <table class="table table-hover">
+    <tr>
+      <td>#Id</td>
+      <td>Nome</td>
+      <td>Preço</td>
+      <td>Data de criação</td>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+      <td>{{produto.id}}</td>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.preco | currency:'BRL':'symbol':'1.2-2'}}</td>
+      <td>{{produto.dataCriacao | date: 'dd/MM/yyyy HH:mm'}}</td>
+      <!--<td><input type="checkbox" {{produto.ativo ? 'checked' : ''}} />
+          </td>-->
+      <td><button class="btn btn-primary" (click)="editProduto(produto)">Editar</button></td>
+    </tr>
+  </table>
+  
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <section>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{formLabel}}</h2>
+        <form [formGroup]='formulario' (ngSubmit)="onSubmit()">
+          <div class="form-horizontal">
+            <div class="form-group col-md-6">
+              <label class="control-label">Nome:</label>
+              <input class="form-control" type="text" formControlName="nome">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Preço:</label>
+              <input class="form-control" type="text" formControlName="preco">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label" for="fornecedorId">Fornecedor:</label>
+              <!--<input class="form-control" type="text" formControlName="fornecedorId">-->
+              <select class="form-control" id="fornecedorId" formControlName="fornecedorId">
+                <option value="" selected="true">Selecione</option>
+                <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+                  {{fornecedor.nome}}
+                </option>
+              </select>
+            </div>
+            <div class="form-footer">
+              <button type="submit" class="btn btn-success" [disabled]="!formulario.valid">Confirmar</button>
+              &nbsp;<a class="btn btn-danger" (click)="cancelar()">Cancelar</a>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
